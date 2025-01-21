@@ -87,6 +87,12 @@
 
                     <button type="submit">Log Workout</button>
                 </form>
+
+                <!-- Workout Log Display -->
+                <div id="workout-log">
+                    <h3>Workout Log</h3>
+                    <p>No workouts logged yet.</p>
+                </div>
             </div>
         </section>
 
@@ -114,8 +120,67 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 Fitness Tracker. All rights reserved.</p>
-            <p>Made with ❤️ by Daniel Gaudreault</p>
+            <p>Made with ❤️ by [Your Name]</p>
         </div>
     </footer>
+
+    <!-- JavaScript for Tracker -->
+    <script>
+        // Get the form and log container
+        const trackerForm = document.getElementById('tracker-form');
+        const logContainer = document.getElementById('workout-log');
+
+        // Load saved workouts from local storage
+        let workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+
+        // Function to display workouts
+        function displayWorkouts() {
+            if (workouts.length === 0) {
+                logContainer.innerHTML = '<h3>Workout Log</h3><p>No workouts logged yet.</p>';
+            } else {
+                logContainer.innerHTML = '<h3>Workout Log</h3>';
+                workouts.forEach((workout, index) => {
+                    logContainer.innerHTML += `
+                        <div class="workout-log-item">
+                            <p><strong>Workout:</strong> ${workout.type}</p>
+                            <p><strong>Duration:</strong> ${workout.duration} minutes</p>
+                            <p><strong>Calories Burned:</strong> ${workout.calories}</p>
+                            <button onclick="deleteWorkout(${index})">Delete</button>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        // Function to delete a workout
+        function deleteWorkout(index) {
+            workouts.splice(index, 1);
+            localStorage.setItem('workouts', JSON.stringify(workouts));
+            displayWorkouts();
+        }
+
+        // Handle form submission
+        trackerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const workoutType = document.getElementById('workout-type').value;
+            const duration = document.getElementById('duration').value;
+            const calories = document.getElementById('calories').value;
+
+            // Save to local storage
+            workouts.push({ type: workoutType, duration, calories });
+            localStorage.setItem('workouts', JSON.stringify(workouts));
+
+            // Display workouts
+            displayWorkouts();
+
+            // Reset the form
+            trackerForm.reset();
+        });
+
+        // Display workouts on page load
+        displayWorkouts();
+    </script>
 </body>
 </html>
