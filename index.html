@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker - Workout Planner</title>
+    <meta name="description" content="Plan and track your workouts with our Fitness Tracker.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/main%20logo%202.png">
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+    <!-- Android Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="images/icons/android-chrome-192x192.png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- Logo and Title -->
+            <div class="logo-title">
+                <img src="images/main logo 2.png" alt="Fitness Tracker Logo" class="logo">
+                <h1>Fitness Tracker</h1>
+            </div>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#workouts">Workouts</a></li>
+                    <li><a href="#tracker">Tracker</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="container">
+                <h2 id="hero-heading">Your Personal Workout Planner</h2>
+                <p>Track your progress, plan your workouts, and achieve your fitness goals.</p>
+                <a href="#workouts" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <!-- Workouts Section -->
+        <section id="workouts" class="workouts" aria-labelledby="workouts-heading">
+            <div class="container">
+                <h2 id="workouts-heading">Popular Workouts</h2>
+                <div class="workout-list">
+                    <div class="workout-item">
+                        <img src="images/workout1.jpg" alt="Strength Training" loading="lazy">
+                        <h3>Strength Training</h3>
+                        <p>Build muscle and increase strength with our guided workouts.</p>
+                    </div>
+                    <div class="workout-item">
+                        <img src="images/workout2.jpg" alt="Cardio" loading="lazy">
+                        <h3>Cardio</h3>
+                        <p>Improve your endurance with high-intensity cardio routines.</p>
+                    </div>
+                    <div class="workout-item">
+                        <img src="images/workout3.jpg" alt="Yoga" loading="lazy">
+                        <h3>Yoga</h3>
+                        <p>Relax and improve flexibility with our yoga sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracker Section -->
+        <section id="tracker" class="tracker" aria-labelledby="tracker-heading">
+            <div class="container">
+                <h2 id="tracker-heading">Progress Tracker</h2>
+                <p>Log your workouts and track your progress over time.</p>
+                <form id="tracker-form">
+                    <label for="workout-type">Workout Type:</label>
+                    <select id="workout-type" name="workout-type" required>
+                        <option value="strength">Strength Training</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="yoga">Yoga</option>
+                    </select>
+
+                    <label for="duration">Duration (minutes):</label>
+                    <input type="number" id="duration" name="duration" required>
+
+                    <label for="calories">Calories Burned:</label>
+                    <input type="number" id="calories" name="calories" required>
+
+                    <button type="submit">Log Workout</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Contact Us</h2>
+                <p>Have questions or feedback? Reach out to us!</p>
+                <form id="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Fitness Tracker. All rights reserved.</p>
+            <p>Made with ❤️ by [Your Name]</p>
+        </div>
+    </footer>
+</body>
+</html>
